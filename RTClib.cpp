@@ -810,7 +810,7 @@ static uint8_t bin2bcd(uint8_t val) { return val + 6 * (val / 10); }
 */
 /**************************************************************************/
 boolean RTC_DS1307::begin(void) {
-  Wire.begin();
+  Wire.begin(14, 13);
   Wire.beginTransmission(DS1307_ADDRESS);
   if (Wire.endTransmission() == 0)
     return true;
